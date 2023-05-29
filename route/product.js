@@ -9,8 +9,8 @@ router.get ('/',async(req,res)=>{
   router.get ('/filter/:query',async(req,res)=>{
     let query=req.params.query;
     regquery=new RegExp(query,"i")
-    let filtered=await client.db("Amazon-project").collection("product").find ({"product_name":regquery}).toArray()
-    res.send(filtered)
+    let filtered=await client.db("Amazon-project").collection("product").find ({"category":regquery}).toArray()
+     res.json(filtered)
    }),
 
 module.exports=router
